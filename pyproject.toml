@@ -1,0 +1,42 @@
+[tool.poetry]
+name = "teste_andre"
+version = "0.1.0"
+description = "teste_andre"
+authors = []
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.10"
+requests = "^2.25.1"
+pandas = "^2.0.0"
+typer = "0.12.5"
+scikit-learn = "1.5.1"
+fastapi = "^0.114.1"
+uvicorn = {version = "^0.30.6", extras = ["standard"]}
+joblib = "^1.4.2"
+python-multipart = "^0.0.10"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2.4"
+pytest-cov = "^5.0.0"
+pytest-mock = "^3.14.0"
+pre-commit = "^3.7.0"
+ruff = "0.6.3"
+black = "^23.1.0"
+bandit = {version = "1.7.7", extras = ["toml"]}
+dvc = {version = "3.55.2", extras = ["s3"]}
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.bandit]
+exclude_dirs = [
+    ".venv",
+    ".git",
+    "__pycache__",
+    "venv/",
+]
+
+[tool.bandit.assert_used]
+skips = ['*/test_*.py']

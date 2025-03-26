@@ -1,0 +1,17 @@
+Instalando hooks de pre-commit
+.venv/bin/poetry run pre-commit install --hook-type pre-push --hook-type post-checkout --hook-type pre-commit
+Traceback (most recent call last):
+  File "/home/jpfcabral/.local/share/virtualenvs/potiguana-HDhWcUuO/bin/pre-commit", line 5, in <module>
+    from pre_commit.main import main
+  File "/home/jpfcabral/.local/share/virtualenvs/potiguana-HDhWcUuO/lib/python3.11/site-packages/pre_commit/main.py", line 14, in <module>
+    from pre_commit.commands.clean import clean
+  File "/home/jpfcabral/.local/share/virtualenvs/potiguana-HDhWcUuO/lib/python3.11/site-packages/pre_commit/commands/clean.py", line 6, in <module>
+    from pre_commit.store import Store
+  File "/home/jpfcabral/.local/share/virtualenvs/potiguana-HDhWcUuO/lib/python3.11/site-packages/pre_commit/store.py", line 6, in <module>
+    import sqlite3
+  File "/home/jpfcabral/.pyenv/versions/3.11.10/lib/python3.11/sqlite3/__init__.py", line 57, in <module>
+    from sqlite3.dbapi2 import *
+  File "/home/jpfcabral/.pyenv/versions/3.11.10/lib/python3.11/sqlite3/dbapi2.py", line 27, in <module>
+    from _sqlite3 import *
+ModuleNotFoundError: No module named '_sqlite3'
+make: *** [Makefile:50: install-pre-commit] Error 1

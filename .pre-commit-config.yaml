@@ -1,0 +1,45 @@
+# .pre-commit-config.yaml
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.3.0
+    hooks:
+      - id: trailing-whitespace
+      - id: check-yaml
+      - id: check-added-large-files
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.6.3
+    hooks:
+      - id: ruff
+        args: [ --fix ]
+      - id: ruff-format
+
+  - repo: https://github.com/PyCQA/bandit
+    rev: 1.7.7
+    hooks:
+      - id: bandit
+        args: ["-c", "pyproject.toml", "-r", "."]
+        additional_dependencies: ["bandit[toml]"]
+
+  - repo: https://github.com/iterative/dvc
+    rev: 3.55.2
+    hooks:
+      - id: dvc-pre-commit
+        additional_dependencies:
+          - .[all]
+        language_version: python3
+        stages:
+          - commit
+      - id: dvc-pre-push
+        additional_dependencies:
+          - .[all]
+        language_version: python3
+        stages:
+          - push
+      - id: dvc-post-checkout
+        additional_dependencies:
+          - .[all]
+        language_version: python3
+        stages:
+          - post-checkout
+        always_run: true
